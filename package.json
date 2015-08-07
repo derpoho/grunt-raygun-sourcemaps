@@ -23,10 +23,13 @@
   },
   "homepage": "https://github.com/clubdesign/grunt-raygun-sourcemaps#readme",
   "dependencies": {
+    "async": "^1.4.1",
+    "chalk": "^1.1.0",
     "restler": "^3.3.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-contrib-jshint": "^0.11.2"
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-jsbeautifier": "^0.2.10"
   }
 }
