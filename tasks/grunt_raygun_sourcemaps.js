@@ -30,11 +30,11 @@
 		});
 
 		// Abort if Raygun URL is empty
-		if( options.raygun_app_id == "" ) {
+		if( options.raygun_app_id === "" ) {
 			console.log("Raygun Url missing");
 			return;
 		} else {
-			options.raygun_url = "https://app.raygun.io/upload/jssymbols/" + options.raygun_app_id + "?authToken=" + options.raygun_external_token			
+			options.raygun_url = "https://app.raygun.io/upload/jssymbols/" + options.raygun_app_id + "?authToken=" + options.raygun_external_token;	
 		}
 
 		if( options.test_run ) {
@@ -76,7 +76,7 @@
 							nextFileObj(err);
 						}
 
-					})
+					});
 				} else {
 					grunt.log.write(">> File: " + file + " >> " + file_url + "\n");
 					process.nextTick(next);
@@ -121,7 +121,7 @@
 			}).on('complete', function( jdata, response ) {
 				if (response !== null && response.statusCode >= 200 && response.statusCode < 300) {
 
-					if( jdata.Status == "Success" ) {
+					if( jdata.Status === "Success" ) {
 						callback( false );
 					} else {
 						callback( true, jdata.Message );
@@ -134,6 +134,6 @@
 
 		});
 
-	}
+	};
 
-}
+};
