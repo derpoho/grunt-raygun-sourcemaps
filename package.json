@@ -18,11 +18,17 @@
   ],
   "author": "Marcus Pohorely",
   "license": {
-      "type": "MIT",
-      "url": "https://github.com/clubdesign/grunt-raygun-sourcemaps/blob/master/LICENSE-MIT"
-    },
+    "type": "MIT",
+    "url": "https://github.com/clubdesign/grunt-raygun-sourcemaps/blob/master/LICENSE-MIT"
+  },
   "bugs": {
     "url": "https://github.com/clubdesign/grunt-raygun-sourcemaps/issues"
   },
-  "homepage": "https://github.com/clubdesign/grunt-raygun-sourcemaps#readme"
+  "homepage": "https://github.com/clubdesign/grunt-raygun-sourcemaps#readme",
+  "dependencies": {
+    "restler": "^3.3.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
 }
