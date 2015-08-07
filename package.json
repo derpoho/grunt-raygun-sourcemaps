@@ -1,6 +1,6 @@
 {
   "name": "grunt-raygun-sourcemaps",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Grunt plugin to upload multiple sourcemap files to Raygun.io",
   "main": "index.js",
   "scripts": {
