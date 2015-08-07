@@ -1,0 +1,28 @@
+{
+  "name": "grunt-raygun-sourcemaps",
+  "version": "0.1.0",
+  "description": "Grunt plugin to upload multiple sourcemap files to Raygun.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clubdesign/grunt-raygun-sourcemaps.git"
+  },
+  "keywords": [
+    "grunt",
+    "gruntplugin",
+    "raygun",
+    "sourcemaps"
+  ],
+  "author": "Marcus Pohorely",
+  "license": {
+      "type": "MIT",
+      "url": "https://github.com/clubdesign/grunt-raygun-sourcemaps/blob/master/LICENSE-MIT"
+    },
+  "bugs": {
+    "url": "https://github.com/clubdesign/grunt-raygun-sourcemaps/issues"
+  },
+  "homepage": "https://github.com/clubdesign/grunt-raygun-sourcemaps#readme"
+}
