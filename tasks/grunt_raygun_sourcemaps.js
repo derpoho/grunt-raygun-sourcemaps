@@ -21,37 +21,57 @@ module.exports = function(grunt) {
     var options = this.options({
       raygun_app_id: "",
       raygun_external_token: "",
-      raygun_url: "",
-      js_url_prefix: "",
+      url_prefix: "",
       test_run: false,
       prepareUrlParam: function(abspath) {
         return abspath;
       }
     });
 
-    if (options.raygun_app_id === "") {
-      console.log("Raygun Url missing");
+    if (options.raygun_external_token === "") {
+      grunt.fail.warn('Raygun External Token is missing.');
       return;
-    } else {
-      options.raygun_url = "https://app.raygun.io/upload/jssymbols/" + options.raygun_app_id + "?authToken=" + options.raygun_external_token;
+    }
+
+    if (options.raygun_app_id === "") {
+      grunt.fail.warn('Raygun App ID is missing.');
+      return;
+    }
+
+    if (options.url_prefix === "") {
+      grunt.fail.warn('Url Prefix is missing');
+      return;
     }
 
     if (options.test_run) {
       grunt.log.warn('Test Rund is enabled. Files will not be uploaded.');
     }
 
+    // Building Raygun Url
+    options.raygun_url = "https://app.raygun.io/upload/jssymbols/" + options.raygun_app_id + "?authToken=" + options.raygun_external_token;
+
     async.eachSeries(this.files, function(f, nextFileObj) {
 
       var files = f.src.filter(function(filepath) {
 
+        if (!grunt.file.isFile(filepath)) {
+          return false;
+        }
+
+        if (filepath.slice(-4) !== ".map") {
+          grunt.log.warn('Source file "' + filepath + '" doesn`t seem to be a sourcemap, will not be uploaded.');
+          return false;
+        }
+
         if (!grunt.file.exists(filepath)) {
           grunt.log.warn('Source file "' + filepath + '" not found.');
           return false;
-        } else {
-          return true;
         }
 
+        return true;
+
       });
+
 
       if (files.length === 0) {
         if (f.src.length < 1) {
@@ -62,7 +82,7 @@ module.exports = function(grunt) {
 
       async.concatSeries(files, function(file, next) {
 
-        var file_url = options.js_url_prefix + options.prepareUrlParam(file.replace(".map", ""));
+        var file_url = options.url_prefix + options.prepareUrlParam(file.replace(".map", ""));
 
         if (!options.test_run) {
           uploadToRaygun(options.raygun_url, file, file_url, function(has_err, err) {
