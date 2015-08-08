@@ -53,7 +53,7 @@ Type: `String`
 Default value: `''`
 Required: `Yes`
 
-This is your App ID from the Raygun.io App. To get this id, either browse to Application Settings > JS Source Center and copy the last part of the path or just browse anywhere within Raygun and check the URL, your App ID will be in there, f.e. `https://app.raygun.io/dashboard/XXXXX`. The XXXXX is xyour App ID.
+This is your App ID from the Raygun.io App. To get this id, either browse to Application Settings > JS Source Center and copy the last part of the path or just browse anywhere within Raygun and check the URL, your App ID will be in there, f.e. `https://app.raygun.io/dashboard/XXXXX`. The XXXXX is your App ID.
 
 #### options.raygun_external_token
 Type: `String`
@@ -67,7 +67,7 @@ Type: `String`
 Default value: `''`
 Required: `Yes`
 
-This is the url prefix to your final js directory on your server. Just the part which doesn`t change before any of the uploaded scripts. Like let`s say: `http://www.yourdomain.com/js`
+This is the url prefix to your final js directory on your server. Just the part which doesn't change before any of the uploaded scripts. Like let's say: `http://www.yourdomain.com/js`
 
 #### options.test_run
 Type: `Boolean`
@@ -81,14 +81,14 @@ Type: `Object`
 DefaultValue: `{}`
 Required: `Optional`
 
-This callback function sends you the relative path to every `*.map*`file it detects, you can modify this path and return a news one for every file. Useful if your local folder structure differs from your server's structure.
+This callback function sends you the relative path to every `*.map*` file it detects, you can modify this path and return a news one for every file. Useful if your local folder structure differs from your server's structure.
 
 ### Usage Examples
 
 #### Default Options
-In this example, the Plugin will take all files ending with `*.map`within the provided directory, cycle them through the `prepareUrlParams`function and upload them to Raygun.io.
-The `prepareUrlParams`Function is nice when your real reachable folder structure is different than your local structure. You can use replace or any other string stuff to change the final path in the url to any uploaded file.
-If you are unsure what this function does with your paths, just set `test_run`to `true`.  With this option no files will be uploaded, they are just gonna be displayed ion your terminal to check all the urls.
+In this example, the Plugin will take all files ending with `*.map` within the provided directory, cycle them through the `prepareUrlParams` function and upload them to Raygun.io.
+The `prepareUrlParams` function is nice when your real reachable folder structure is different than your local structure. You can use replace or any other string stuff to change the final path in the url to any uploaded file.
+If you are unsure what this function does with your paths, just set `test_run` to `true`. With this option no files will be uploaded, they are just gonna be displayed ion your terminal to check all the urls.
 
 ```js
 grunt.initConfig({
