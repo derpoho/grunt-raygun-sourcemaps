@@ -81,7 +81,7 @@ Type: `Object`
 DefaultValue: `{}`
 Required: `Optional`
 
-This callback function sends you the relative path to every `*.map*` file it detects, you can modify this path and return a news one for every file. Useful if your local folder structure differs from your server's structure.
+This callback function sends you the relative path to every `*.map` file it detects, you can modify this path and return a news one for every file. Useful if your local folder structure differs from your server's structure.
 
 ### Usage Examples
 
